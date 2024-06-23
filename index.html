@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main>
+        <section id="head">
+            <h2>Nova conta</h2>
+        </section>
+        <form>
+            <section class="contentline">
+                <label for="username">Nome do usuário</label>
+                <input type="text" class="campo" id="username" placeholder="Digite o nome do usuário...">
+                <a></a>
+            </section>
+            <section class="contentline">
+                <label for="email">Email</label>
+                <input type="text" class="campo" id="email" placeholder="Digite seu email...">
+                <a></a>
+            </section>
+            <section class="contentline">
+                <label for="senha">Senha</label>
+                <input type="password" class="campo" id="senha" placeholder="Digite sua senha...">
+                <a></a>
+            </section>
+            <section class="contentline">
+                <label for="senhaconfir">Confirmação de senha</label>
+                <input type="password" class="campo" id="senhaconfirm" placeholder="Digite sua senha novamente...">
+                <a></a>
+            </section>
+            <section id="content" class="contentline">
+                <button type="button" onclick="cadastrarFormulario()">Cadastrar</button>
+            </section>
+        </form>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
