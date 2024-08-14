@@ -79,3 +79,52 @@ a {
     color: red;
     visibility: hidden;
 }
+
+table {
+    background-color: #48C6F3;
+    width: 90vw;
+}
+
+td {
+    background-color: white;
+}
+
+th {
+    color: white;
+}
+
+table, td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.left {
+    text-align: left;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+.botão {
+    background-color: transparent;
+    border: transparent;
+}
+
+.altbutton, .delbutton {
+    color: black;
+    font-weight: bolder;
+    border: 3px outset rgb(106, 106, 106);
+}
+
+.altbutton {
+    background-color: rgb(255, 232, 55);
+}
+
+.delbutton {
+    background-color: rgb(255, 50, 55);
+}

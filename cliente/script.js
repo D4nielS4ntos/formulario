@@ -13,6 +13,9 @@ let dados = {
 }
 
 
+let mainEdit = document.querySelector('main')
+
+
 usuario.addEventListener("blur", () => {
     checarInputUsuario()
 })
@@ -37,6 +40,12 @@ botao.addEventListener("click", (event) => {
     checarInputSenhaConfirm()
 
     checkForm() == true && preencherDados()
+})
+
+
+mainEdit.addEventListener("load", () => {
+    mainEdit.innerHTML += "aaaaaaaaaaaabaa"
+    alert('deu')
 })
 
 

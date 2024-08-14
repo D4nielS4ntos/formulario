@@ -15,6 +15,13 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(caminho, 'cliente/index.html'))
 })
 
+app.get("/edit", (req, res) => {
+    let caminho = __dirname.split("\\")
+    caminho.pop()
+    caminho = caminho.join("\\")
+    res.sendFile(path.join(caminho, 'cliente/edit.html'))
+})
+
 app.use("/cadastrar", formRouter)
 
 app.listen(port, () => {

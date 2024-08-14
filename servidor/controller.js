@@ -19,9 +19,13 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     const { usuario, email, senha } = req.body;
-    console.log(req.body)
-    console.log(usuario, email, senha)
-    executarConsulta('INSERT INTO tb_usuário (nome, email, senha) VALUES (?, ?, ?)', [usuario, email, senha], res, "Erro no cadastro de administradora!");
-});
+    executarConsulta('INSERT INTO tb_usuário (nome, email, senha) VALUES (?, ?, ?)', [usuario, email, senha], res, "Erro no cadastro de administradora!")
+})
+
+router.delete("/:id", (req, res) => {
+  const Id = req.params.id;
+  console.log("deletando" + Id + "...")
+  executarConsulta('DELETE FROM tb_usuário WHERE id = ?', [Id], res, 'Erro ao deletar administradora')
+})
 
 module.exports = router
