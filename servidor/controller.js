@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
 
 router.delete("/:id", (req, res) => {
   const Id = req.params.id;
-  console.log("deletando" + Id + "...")
+  console.log("deletando usuário " + Id + "...")
   executarConsulta('DELETE FROM tb_usuário WHERE id = ?', [Id], res, 'Erro ao deletar administradora')
 })
 

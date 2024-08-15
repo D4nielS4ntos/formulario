@@ -1,3 +1,9 @@
+import fm from "./views/formulárioView.js"
+
+
+let main = document.querySelector('main')
+main.innerHTML += fm.criarHeader("Nova Conta")
+main.innerHTML += fm.criarFormulario()
 
 let form = document.querySelector('form')
 let usuario = document.querySelector('input#username')
@@ -5,7 +11,6 @@ let email = document.querySelector('input#email')
 let senha = document.querySelector('input#senha')
 let senhaConfirm = document.querySelector('input#senhaconfirm')
 let botao = document.querySelector('button#cadastro')
-
 let dados = {
     usuario: "",
     email: "",
@@ -13,39 +18,32 @@ let dados = {
 }
 
 
-let mainEdit = document.querySelector('main')
-
-
 usuario.addEventListener("blur", () => {
     checarInputUsuario()
 })
+
 
 email.addEventListener("blur", () => {
     checarInputEmail()
 })
 
+
 senha.addEventListener("blur", () => {
     checarInputSenha()
 })
+
 
 senhaConfirm.addEventListener("blur", () => {
     checarInputSenhaConfirm()
 })
 
-botao.addEventListener("click", (event) => {
-    // event.preventDefault()
+
+botao.addEventListener("click", () => {
     checarInputUsuario()
     checarInputEmail()
     checarInputSenha()
     checarInputSenhaConfirm()
-
     checkForm() == true && preencherDados()
-})
-
-
-mainEdit.addEventListener("load", () => {
-    mainEdit.innerHTML += "aaaaaaaaaaaabaa"
-    alert('deu')
 })
 
 
@@ -137,8 +135,5 @@ function postDados(dados) {
         },
         body: JSON.stringify(dados)
     })
-    // fetch("/cadastrar")
-    // .then(res => res.json())
-    // .then(data => console.log(data))
-    // .catch(erro => console.log(erro))
+    .catch(erro => console.log(erro))
 }
