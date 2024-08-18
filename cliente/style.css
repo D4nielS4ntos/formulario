@@ -9,7 +9,7 @@
 body {
     background-color: black;
     min-height: 100vh;
-    width: 100vw;
+    /* width: 100vw; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,22 +27,25 @@ h2 {
 }
         
 main {
-    /* position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
+
     background-color: #FBFAFB;
     border-radius: 5px;
-    margin: 10px;
-    max-width: 700px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
     overflow: hidden;
-    width: 100vw;
+}
+
+main#main-index {
+    width: 80%;
 }
     
 section.contentline {
     display: block;
+    margin: auto;
     margin: 20px;
+    overflow-x: auto;
 }
 
 label {
@@ -82,7 +85,8 @@ a {
 
 table {
     background-color: #48C6F3;
-    width: 90vw;
+    width: 100;
+    margin: auto;
 }
 
 td {

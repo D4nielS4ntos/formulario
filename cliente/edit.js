@@ -1,10 +1,11 @@
-import ed from "./views/editView.js"
-import fm from "./views/formulárioView.js"
+import editView from "./views/editView.js"
+import formView from "./views/formulárioView.js"
+import formController from "./controllers/formController.js"
 
 
 let main = document.querySelector('main')
-main.innerHTML += fm.criarHeader("Tabela Usuários")
-main.innerHTML += ed.criarTabela()
+main.innerHTML += formView.criarHeader("Tabela Usuários")
+main.innerHTML += editView.criarTabela()
 
 let table = document.querySelector('table')
 
@@ -15,7 +16,7 @@ async function gerarTabela() {
         if (!response.ok) throw new Error("Erro ao excluir a cidade");
         let data = await response.json()
         for (let element of data) {
-            table.innerHTML += ed.criarLinha(element)
+            table.innerHTML += editView.criarLinha(element)
         }
         alterarDado()
         deletarDado()   
@@ -50,12 +51,52 @@ function deletarDado() {
 
 function alterar(id) {
     main.innerHTML = ""
-    main.innerHTML += fm.criarHeader("Alterar Usuário")
-    main.innerHTML += fm.criarFormulario()
-    alert(id)
+    main.innerHTML += formView.criarHeader("Alterar Usuário")
+    main.innerHTML += formView.criarFormulario()
+    alterarEventos(id)
+    formController.colocarValoresDeAlterarUsuario(id)
 }
+
 
 function deletar(id) {
     const response = fetch(`/cadastrar/${id}`, { method: "DELETE" })
     if (!response.ok) throw new Error("Erro ao excluir dado")
+}
+
+function alterarEventos(id) {
+    let form = document.querySelector('form')
+    let usuario = document.querySelector('input#username')
+    let email = document.querySelector('input#email')
+    let senha = document.querySelector('input#senha')
+    let senhaConfirm = document.querySelector('input#senhaconfirm')
+    let botao = document.querySelector('button#cadastro')
+
+
+    usuario.addEventListener("blur", () => {
+        formController.checarInputUsuario(usuario)
+    })
+
+
+    email.addEventListener("blur", () => {
+        formController.checarInputEmail(email)
+    })
+
+
+    senha.addEventListener("blur", () => {
+        formController.checarInputSenha(senha)
+    })
+
+
+    senhaConfirm.addEventListener("blur", () => {
+        formController.checarInputSenhaConfirm(senhaConfirm)
+    })
+
+
+    botao.addEventListener("click", () => {
+        formController.checarInputUsuario(usuario)
+        formController.checarInputEmail(email)
+        formController.checarInputSenha(senha)
+        formController.checarInputSenhaConfirm(senhaConfirm)
+        formController.checkForm(form) == true && formController.preencherDados("PUT", id, usuario, email, senha)
+    })
 }

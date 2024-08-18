@@ -2,7 +2,7 @@ const express = require('express')
 const path = require('path')
 const app = express()
 const port = 3000
-const formRouter = require('./controller.js')
+const formRouter = require('./cadastroController.js')
 
 
 app.use(express.static("../cliente"))
