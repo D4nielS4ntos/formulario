@@ -53,6 +53,7 @@ function alterar(id) {
     main.innerHTML = ""
     main.innerHTML += formView.criarHeader("Alterar Usuário")
     main.innerHTML += formView.criarFormulario()
+    main.style.width = "100%"
     alterarEventos(id)
     formController.colocarValoresDeAlterarUsuario(id)
 }
